@@ -22,7 +22,7 @@ class ItemController extends CI_Controller {
 			$price = $this->db->where('item_id', $item->id)->get('prices')->row()->price;
 			echo json_encode([
 					'name' => $item->name,
-					'price' => '₱' . $price,
+					'price' => 'Rp. ' . $price,
 					'quantity' => $quantity,
 					'id' => $item->id
 				]) ;
@@ -84,7 +84,7 @@ class ItemController extends CI_Controller {
 					ucwords($item->name),
 					ucfirst($item->description),
 					$quantity,
-					'₱'. number_format($price,2)
+					'Rp. '. number_format($price,2)
 				];			
 
 		}

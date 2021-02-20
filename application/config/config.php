@@ -24,10 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-if (SITE_LIVE)
-	$config['base_url'] = getenv('base_url');
-else 
-	$config['base_url'] = 'http://localhost/poslite-master';
+$config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+$config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
+$config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
 
 /*

@@ -3,7 +3,7 @@
 	var totalAmountDue = 0;
 	var totalDiscount = 0;
 	var transactionComplete = false;
-	var currency = '₱';
+	var currency = 'Rp. ';
 
 	var dHeight = parseInt($(document).height());
  	
