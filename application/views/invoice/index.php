@@ -58,7 +58,7 @@
              <td><?= $invoice->log_type; ?></td>
              <td><?= $invoice->total_volume; ?></td>
              <td><?= $invoice->total_paid; ?></td>
-             <td><button class="btn btn-info btn-sm edit" onclick="setPdfUrl('<?= $invoice->id ?>')" data-toggle="modal" data-target="#pdf-invoice" data-id="<?= $invoice->id ?>">Edit</button>
+             <td><button class="btn btn-warning btn-sm edit" onclick="setPdfUrl('<?= $invoice->id ?>')" data-toggle="modal" data-target="#pdf-invoice" data-id="<?= $invoice->id ?>">Pdf</button>
                </td>
              <td>
                <button class="btn btn-info btn-sm edit" data-toggle="modal" data-target="#edit-invoice" data-id="<?= $invoice->id ?>">Edit</button>
