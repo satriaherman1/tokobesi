@@ -8,8 +8,15 @@
 <div class="row">
 	 <div class="col-md-12">
         <?php 
-        echo $this->session->flashdata('errorMessage');
-        echo $this->session->flashdata('successMessage');
+         if($this->session->flashdata('successMessage')){
+                echo $this->session->flashdata('successMessage');
+                $this->session->unset_userdata('successMessage');
+                $this->session->unset_userdata('errorMessage');
+		}
+		else{
+			echo $this->session->flashdata('errorMessage');
+			$this->session->unset_userdata('errorMessage');
+		}
     
         ?>
     </div>

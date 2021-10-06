@@ -13,7 +13,7 @@ class SalesController extends CI_Controller {
  
 
 	public function sales () {
-	 	
+	 	// echo "hi";
 		$data['dataset'] = $this->graphSales();
 		$data['content'] = "sales/index";
 		$this->load->view('master',$data);
@@ -64,7 +64,7 @@ class SalesController extends CI_Controller {
 		$html .= "<div class='date'><h4>Date:</h4>";
 		$html .= "<div class='date'>From: " . $from . "</div>";
 		$html .= "<div class='date'>To: " . $to . "</div></div>";
-		$html .= "<div class='right'><h4>Total Sales:</h4><div>₱".number_format($totalSales)."</div></div>";
+		$html .= "<div class='right'><h4>Total Sales:</h4><div>Rp.".number_format($totalSales)."</div></div>";
 		$html .= "<div class='clearfix'></div>";
 		$html .= "<br>";
 		$html .= "<table class='table table-striped'>";
@@ -262,8 +262,8 @@ class SalesController extends CI_Controller {
 					date('Y-m-d h:i:s a', strtotime($sale->date_time)), 
 					$desc->name,
 					$desc->quantity,
-					'₱' . (float)$desc->price,
-					'₱'. (float)$desc->quantity * (float)$desc->price,
+					'Rp.' . (float)$desc->price,
+					'Rp.'. (float)$desc->quantity * (float)$desc->price,
 					'
 						<a class="btn btn-danger" href="'.base_url('SalesController/destroy/') . $desc->id.'">Delete</a>
 					'

@@ -106,3 +106,11 @@ $route['delivery/insert'] = "DeliveriesController/insert";
 $route['users'] = "UsersController/users";
 
 $route['login'] = 'AuthController/login';
+
+// invoice
+$route['invoice'] = "InvoiceController/index";
+$route['invoice/insert'] = "InvoiceController/insert";
+$route['invoice/find'] = "InvoiceController/find";
+$route['invoice/update'] = "InvoiceController/update";
+$route['invoice/delete/(:any)'] = "InvoiceController/destroy/$1";
+$route['invoice/pdf/(:any)'] = "InvoiceController/export/$1";

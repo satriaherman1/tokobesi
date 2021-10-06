@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header">Reports</h1>
+		<h1 class="page-header">Laporan</h1>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -21,7 +21,7 @@
 
 					<input type="text" id="min-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="From:">
 
-					<div class="input-group-addon">to</div>
+					<div class="input-group-addon">Sampai</div>
 
 					<input type="text" id="max-date" class="form-control date-range-filter" data-date-format="yyyy-mm-dd" placeholder="To:">
 
@@ -41,7 +41,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Sales Reports
+				Laporan Penjualan
 			</div>
 
 			<!-- /.panel-heading -->
@@ -49,19 +49,19 @@
 				<div id="widgets" style="display: none;">
 					<div class="col-md-4">
 						<div class="sale-widget text-center">
-							Total Sales<br>
+							Total Penjualan<br>
 							<b><span id="total-sales"></span></b>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="sale-widget text-center">
-							Profit<br>
+							Keuntungan<br>
 							<b><span id="total-profit"></span></b>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="sale-widget text-center">
-							Loss<br>
+							Kerugian<br>
 							<b><span id="total-lost"></span></b>
 						</div>
 					</div>
@@ -69,9 +69,9 @@
 
 				<div class="col-md-6" id="graph-menu" style="display: none;">
 					<div class="btn-group pull-center" role="group" aria-label="Basic example">
-						<button type="button" class="btn btn-default active" data-id="week">Last 7 Days</button>
-						<button type="button" class="btn btn-default" data-id="month">Monthly</button> 
-						<button type="button" class="btn btn-default" data-id="year">Yearly</button>
+						<button type="button" class="btn btn-default active" data-id="week">7 Hari Tearakhir</button>
+						<button type="button" class="btn btn-default" data-id="month">Bulanan</button> 
+						<button type="button" class="btn btn-default" data-id="year">Tahunan</button>
 					</div>
 				</div>
 				<div class="col-lg-12" id="graph" style="display: none;">
@@ -87,9 +87,9 @@
 					<table class="table table-bordered table-stripped" id="sales_table" style="width: 100%">
 						<thead>
 							<tr>
-								<th width="15%">Sales ID</th>
-								<th width="20%">Date</th>
-								<th width="20%">Item Name</th> 
+								<th width="15%">ID Penjualan</th>
+								<th width="20%">Tanggal</th>
+								<th width="20%">Nama</th> 
 								<th width="10%">Quantity</th>
 								<th width="10%">Price</th>
 								<th width="15%">Total</th>  

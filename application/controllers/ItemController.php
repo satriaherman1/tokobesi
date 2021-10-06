@@ -40,7 +40,7 @@ class ItemController extends CI_Controller {
 		$this->load->model('categories_model');
 
 		$data['items'] = $this->ItemModel->itemList();
-		$data['total'] = number_format($this->ItemModel->total()->total,2);
+		$data['total'] = number_format($this->ItemModel->total()->total);
 
 		$data['page'] = 'inventory';
 		$data['price'] = $this->PriceModel;
@@ -84,7 +84,7 @@ class ItemController extends CI_Controller {
 					ucwords($item->name),
 					ucfirst($item->description),
 					$quantity,
-					'Rp. '. number_format($price,2)
+					'Rp. '. number_format($price)
 				];			
 
 		}

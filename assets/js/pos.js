@@ -1,4 +1,4 @@
-	$(document).ready(function() {
+$(document).ready(function() {
 	var base_url = $("meta[name='base_url']").attr('content');
 	var totalAmountDue = 0;
 	var totalDiscount = 0;
@@ -27,7 +27,7 @@
 					if (data) {
 						var result = JSON.parse(data);
 						var quantity = 1;
-					 	var subtotal = parseInt(quantity) * parseFloat($("#price").text().substring(1));
+					 	var subtotal = parseInt(quantity) * parseFloat($("#price").text().substring(2));
 					 	totalAmountDue += parseFloat(subtotal);
 						$("#cart tbody").append(
 								'<tr>' +
@@ -71,8 +71,8 @@
   	 	if (id && name && stocks && price && description) {
   	 		if (itemExist(id,stocks) == false) {
 	  	 		var quantity = 1;
-			 	var subtotal = parseInt(quantity) * parseFloat($("#price").text().substring(1));
-			 	totalAmountDue += parseFloat(subtotal);
+			 	var subtotal = parseInt(quantity) * parseFloat($("#price").text().substring(3));
+				 totalAmountDue += parseFloat(subtotal);
 				$("#cart tbody").append(
 						'<tr>' +
 							'<input name="id" type="hidden" value="'+ id +'">' +
@@ -87,8 +87,8 @@
 				recount();
 				$("payment").val('');
 				$("change").val('');
-	  	 	}
-  	 	}
+			}
+		}
 		
 	})
 
@@ -130,14 +130,14 @@
  	 
  		if (row) {
 
- 			var totalAmountDue = parseFloat($("#amount-total").text().substring(1).replace(',',''));
+ 			var totalAmountDue = parseFloat($("#amount-total").text().substring(3).replace(',',''));
 	 
 			if (parseFloat(payment) >= parseFloat(totalAmountDue)) {
 		 		
 	 			for (i = 0; i < row; i++) {
 					var r = $("#cart tbody tr").eq(i).find('td');
 					var quantity = r.eq(1).find('input').val();
-					var price = r.eq(3).text().substring(1).replace(',','');
+					var price = r.eq(3).text().substring(3).replace(',','');
 					var arr = {
 							id : $("#cart tbody tr").eq(i).find('input[name="id"]').val(), 
 							quantity : quantity, 
@@ -238,7 +238,7 @@
 		var payment = parseInt($(this).val());
 		var cart = $("#cart tbody tr").length;
 		if (cart) {
-			var totalAmountDue = parseFloat($("#amount-total").text().substring(1).replace(',',''));
+			var totalAmountDue = parseFloat($("#amount-total").text().substring(3).replace(',',''));
 			if (payment >= totalAmountDue) {
 		 	
 				return $("#change").val((payment - totalAmountDue).toFixed(2));
@@ -267,8 +267,7 @@
 		
 		var discount = parseInt($(this).val());
 
-		if (discount != "") {
-			recount();
+		if (discount != "") {			recount();
 		}else {
 			$(this).val('');
 		}
@@ -294,7 +293,7 @@
 			if (quantity <= parseInt(currentStocks)) {
 				var row = $(this).parents("tr");
 				var priceCol = row.find('td').eq(2);
-				var price = priceCol.text().substring(1);
+				var price = priceCol.text().substring(3);
 				var subtotal = parseInt(quantity) * parseFloat(price);
 				return recount();
 			}
@@ -328,9 +327,9 @@
 		for (i = 0; i < row; i++) {
 			var r = $("#cart tbody tr").eq(i).find('td');
 			var quantity = parseInt(r.eq(1).find('input').val());
-			var price = r.eq(3).text().substring(1).replace(',','');
+			var price = r.eq(3).text().substring(3).replace(',','');
 			var discount = parseInt(r.eq(2).find('input').val());
-			total += parseFloat(price) * quantity;
+			total += parseInt(price) * quantity;
 
 			discountAmount += isNaN(discount) == true ? 0 : discount ;
 			
@@ -339,7 +338,7 @@
 		totalAmountDue = total - discountAmount;
 		
 		$("#amount-discount").text(currency + totalDiscount.toFixed(2));
-		$("#amount-total").text("₱" + number_format(totalAmountDue.toFixed(2)));
+		$("#amount-total").text(currency + number_format(totalAmountDue.toFixed(2)));
 	}
 
  

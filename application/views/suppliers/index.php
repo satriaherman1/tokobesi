@@ -101,7 +101,7 @@
   </div>
 </div>
 
-<div id="edit-supplier" class="modal fade" role="dialog">
+<div id="edit-invoice" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -111,7 +111,7 @@
         <h4 class="modal-title">Edit Supplier</h4>
       </div>
       <div class="modal-body">
-        <form method="POST" action="<?php echo base_url('suppliers/update') ?>" id="edit-supplier-form">
+        <form method="POST" action="<?php echo base_url('suppliers/update') ?>" id="edit-invoice-form">
           <input type="hidden" name="id" id="supplier_id">
           <div class="form-group">
             <input required="required" type="text" class="form-control" name="name" placeholder="Name">

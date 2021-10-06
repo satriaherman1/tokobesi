@@ -5,9 +5,16 @@
         </h1> 
 	</div>
     <div class="col-md-12">
-        <?php 
-        echo $this->session->flashdata('errorMessage');
-        echo $this->session->flashdata('successMessage');
+        <?php
+             if($this->session->flashdata('successMessage')){
+                echo $this->session->flashdata('successMessage');
+                $this->session->unset_userdata('successMessage');
+                $this->session->unset_userdata('errorMessage');
+            }
+            else{
+                echo $this->session->flashdata('errorMessage');
+                $this->session->unset_userdata('errorMessage');
+            }
       
         ?>
     </div>
@@ -46,9 +53,9 @@
                  	 
                  				<td><?php echo $item->name ?></td>
                  				<td><?php echo $categoryModel->getName($item->category_id); ?></td> 
-                 				<td><?php echo 'Rp. '. number_format($item_price,2) ?></td>
+                 				<td><?php echo 'Rp. '. number_format($item_price) ?></td>
                                 <td><?php echo $orderingLevel->getQuantity($item->id)->quantity ? $orderingLevel->getQuantity($item->id)->quantity : 'Out of stock'; ?></td>
-                                <td><?php echo 'Rp. '. number_format($capital,2) ?></td>
+                                <td><?php echo 'Rp. '. number_format($capital) ?></td>
                                 <td><?php echo $item->supplier_name; ?></td>
                  				<td><?php echo $stocks <= 0 ? '<span class="badge bg-danger">Stock Out</span>' : ($stocks <= $item->status ? '<span class="badge badge-success">Needs restock</span>' : '<span class="badge badge-success">Available</span>') ?></td>
                  				<td>

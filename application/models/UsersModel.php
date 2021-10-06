@@ -34,5 +34,6 @@ class UsersModel extends CI_Model {
 		$sql = $this->db->where('username',$username)
 						->get('users');
 	 	return $row = $sql->row();
+		// var_dump($sql);
 	}
 }
